@@ -1,0 +1,80 @@
+import java.util.Scanner;
+
+public class AttendanceApp {
+
+    static String[] names = new String[100];   // array to store names
+    static boolean[] present = new boolean[100]; // array to store attendance
+    static int count = 0; // number of students added
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        while (true) {
+            System.out.println("\n---- Attendance Menu ----");
+            System.out.println("1. Add Student");
+            System.out.println("2. Mark Attendance");
+            System.out.println("3. View Attendance");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice (1-4): ");
+            int choice = sc.nextInt();
+            sc.nextLine(); // consume the leftover newline
+
+            if (choice == 1) {
+                addStudent();
+            } else if (choice == 2) {
+                markAttendance();
+            } else if (choice == 3) {
+                viewAttendance();
+            } else if (choice == 4) {
+                System.out.println("Thank you! Exiting...");
+                break;
+            } else {
+                System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+
+    static void addStudent() {
+        if (count >= 100) {
+            System.out.println("Student limit reached!");
+            return;
+        }
+
+        System.out.print("Enter student name: ");
+        String name = sc.nextLine();
+        names[count] = name;
+        present[count] = false; // by default absent
+        count++;
+        System.out.println("Student added successfully.");
+    }
+
+    static void markAttendance() {
+        if (count == 0) {
+            System.out.println("No students available to mark.");
+            return;
+        }
+
+        System.out.println("\nMark attendance for each student (y = yes, n = no):");
+        for (int i = 0; i < count; i++) {
+            System.out.print("Is " + names[i] + " present? (y/n): ");
+            String input = sc.nextLine().toLowerCase();
+            if (input.equals("y")) {
+                present[i] = true;
+            } else {
+                present[i] = false;
+            }
+        }
+    }
+
+    static void viewAttendance() {
+        if (count == 0) {
+            System.out.println("No students to show.");
+            return;
+        }
+
+        System.out.println("\n--- Attendance Report ---");
+        for (int i = 0; i < count; i++) {
+            System.out.println("Name: " + names[i] + " | Present: " + (present[i] ? "Yes" : "No"));
+        }
+    }
+}
