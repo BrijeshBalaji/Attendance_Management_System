@@ -1,0 +1,39 @@
+---- Attendance Menu ----
+1. Add Student
+2. Mark Attendance
+3. View Attendance
+4. Exit
+Enter your choice (1-4): 1
+Enter student name: Ravi
+Student added successfully.
+
+---- Attendance Menu ----
+1. Add Student
+2. Mark Attendance
+3. View Attendance
+4. Exit
+Enter your choice (1-4): 1
+Enter student name: Priya
+Student added successfully.
+
+---- Attendance Menu ----
+1. Add Student
+2. Mark Attendance
+3. View Attendance
+4. Exit
+Enter your choice (1-4): 2
+
+Mark attendance for each student (y = yes, n = no):
+Is Ravi present? (y/n): y
+Is Priya present? (y/n): n
+
+---- Attendance Menu ----
+1. Add Student
+2. Mark Attendance
+3. View Attendance
+4. Exit
+Enter your choice (1-4): 3
+
+--- Attendance Report ---
+Name: Ravi | Present: Yes
+Name: Priya | Present: No
